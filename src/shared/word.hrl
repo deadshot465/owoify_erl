@@ -1,0 +1,1 @@
+-record(word, {inner_word :: unicode:charlist(), replaced_words :: sets:set()}).
