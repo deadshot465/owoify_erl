@@ -1,3 +1,5 @@
+%% @private
+
 -module(owoify_erl_tests).
 -include_lib("eunit/include/eunit.hrl").
 
