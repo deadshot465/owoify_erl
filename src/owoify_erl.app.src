@@ -1,6 +1,6 @@
 {application, owoify_erl,
- [{description, "An OTP library"},
-  {vsn, "0.1.0"},
+ [{description, "This Erlang port of mohan-cao's owoify-js is released under MIT license, which is also the same license of owoify-js. This simple library will turn any string into nonsensical babyspeak similar to what LeafySweet's infamous Chrome extension did."},
+  {vsn, "1.0.0"},
   {registered, []},
   {applications,
    [kernel,
@@ -9,6 +9,6 @@
   {env,[]},
   {modules, []},
 
-  {licenses, ["Apache 2.0"]},
-  {links, []}
+  {licenses, ["MIT"]},
+  {links, [{"GitHub", "https://github.com/deadshot465/owoify_erl"}]}
  ]}.
