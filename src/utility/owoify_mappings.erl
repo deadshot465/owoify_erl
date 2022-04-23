@@ -1,7 +1,14 @@
--module(mappings).
+-module(owoify_mappings).
 -include("../shared/word.hrl").
 
--compile(export_all).
+-export([map_brackets_to_star_trails/1, map_consonant_r_to_consonant_w/1, map_dead_to_ded/1, map_ew_to_uwu/1, map_fi_to_fwi/1]).
+-export([map_fuc_to_fwuc/1, map_haha_to_hehe_xd/1, map_hey_to_hay/1, map_l_or_r_o_to_wo/1, map_le_to_wal/1, map_ll_to_ww/1]).
+-export([map_ly_to_wy/1, map_me_to_mwe/1, map_mom_to_mwom/1, map_n_vowel_t_to_nd/1, map_n_vowel_to_ny/1, map_nr_to_nw/1]).
+-export([map_o_to_owo/1, map_ol_to_owl/1, map_old_to_owld/1, map_ove_to_uv/1, map_over_to_owor/1, map_period_comma_exclamation_semicolon_to_kaomojis/1]).
+-export([map_ple_to_pwe/1, map_poi_to_pwoi/1, map_r_or_l_to_w/1, map_read_to_wead/1, map_ry_to_wwy/1, map_specific_consonants_le_to_letter_and_wal/1]).
+-export([map_specific_consonants_o_to_letter_and_wo/1, map_th_to_f/1, map_that_to_dat/1, map_the_to_teh/1, map_time_to_tim/1]).
+-export([map_v_or_w_le_to_wal/1, map_ve_to_we/1, map_ver_to_wer/1, map_vowel_or_r_except_o_l_to_wl/1, map_worse_to_wose/1]).
+-export([map_you_to_u/1]).
 
 -spec o_to_owo() -> {'re_pattern', _, _, _, _}.
 o_to_owo() ->
@@ -421,3 +428,70 @@ map_specific_consonants_o_to_letter_and_wo(Input) ->
     end,
     FirstResult = words:replace(Input, specific_consonants_o_to_letter_and_wo_lower(), <<"\\1wo"/utf8>>, false),
     words:replace_with_func_multiple(FirstResult, specific_consonants_o_to_letter_and_wo_upper(), Func, false).
+
+map_v_or_w_le_to_wal(Input) ->
+    words:replace(Input, vorw_le_to_wal(), <<"wal"/utf8>>, false).
+
+map_fi_to_fwi(Input) ->
+    FirstResult = words:replace(Input, fi_to_fwi_lower(), <<"\\1wi"/utf8>>, false),
+    words:replace(FirstResult, fi_to_fwi_upper(), <<"FWI"/utf8>>, false).
+
+map_ver_to_wer(Input) ->
+    words:replace(Input, ver_to_wer(), <<"wer"/utf8>>, false).
+
+map_poi_to_pwoi(Input) ->
+    words:replace(Input, poi_to_pwoi(), <<"\\1woi"/utf8>>, false).
+
+map_specific_consonants_le_to_letter_and_wal(Input) ->
+    words:replace(Input, specific_consonants_le_to_letter_and_wal(), <<"\\1wal"/utf8>>, false).
+
+map_consonant_r_to_consonant_w(Input) ->
+    words:replace(Input, consonant_r_to_consonant_w(), <<"\\1w"/utf8>>, false).
+
+map_ly_to_wy(Input) ->
+    FirstResult = words:replace(Input, ly_to_wy_lower(), <<"wy"/utf8>>, false),
+    words:replace(FirstResult, ly_to_wy_upper(), <<"Wy"/utf8>>, false).
+
+map_ple_to_pwe(Input) ->
+    words:replace(Input, ple_to_pwe(), <<"\\1we"/utf8>>, false).
+
+map_nr_to_nw(Input) ->
+    FirstResult = words:replace(Input, nr_to_nw_lower(), <<"nw"/utf8>>, false),
+    words:replace(FirstResult, nr_to_nw_upper(), <<"NW"/utf8>>, false).
+
+map_fuc_to_fwuc(Input) ->
+    words:replace(Input, fuc_to_fwuc(), <<"\\1wuc"/utf8>>, false).
+
+map_mom_to_mwom(Input) ->
+    words:replace(Input, mom_to_mwom(), <<"\\1wom"/utf8>>, false).
+
+map_me_to_mwe(Input) ->
+    words:replace(Input, me_to_mwe(), <<"\\1we"/utf8>>, false).
+
+map_n_vowel_to_ny(Input) ->
+    FirstResult = words:replace(Input, n_vowel_to_ny_first(), <<"ny\\1"/utf8>>, false),
+    SecondResult = words:replace(FirstResult, n_vowel_to_ny_second(), <<"Ny\\1"/utf8>>, false),
+    words:replace(SecondResult, n_vowel_to_ny_third(), <<"NY\\1"/utf8>>, false).
+
+map_ove_to_uv(Input) ->
+    FirstResult = words:replace(Input, ove_to_uv_lower(), <<"uv"/utf8>>, false),
+    words:replace(FirstResult, ove_to_uv_upper(), <<"UV"/utf8>>, false).
+
+map_haha_to_hehe_xd(Input) ->
+    words:replace(Input, haha_to_hehe_xd(), <<"hehe xD"/utf8>>, false).
+
+map_the_to_teh(Input) ->
+    words:replace(Input, the_to_teh(), <<"\\1eh"/utf8>>, false).
+
+map_you_to_u(Input) ->
+    FirstResult = words:replace(Input, you_to_u_upper(), <<"U"/utf8>>, false),
+    words:replace(FirstResult, you_to_u_lower(), <<"u"/utf8>>, false).
+
+map_time_to_tim(Input) ->
+    words:replace(Input, time_to_tim(), <<"\\1im"/utf8>>, false).
+
+map_over_to_owor(Input) ->
+    words:replace(Input, over_to_owor(), <<"\\1wor"/utf8>>, false).
+
+map_worse_to_wose(Input) ->
+    words:replace(Input, worse_to_wose(), <<"\\1ose"/utf8>>, false).
