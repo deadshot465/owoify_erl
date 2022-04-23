@@ -1,1 +1,1 @@
--record(word, {inner_word = <<"">> :: unicode:charlist(), replaced_words = sets:new() :: sets:set()}).
+-record(word, {inner_word = <<""/utf8>> :: unicode:charlist(), replaced_words = sets:new() :: sets:set()}).

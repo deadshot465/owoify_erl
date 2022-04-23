@@ -1,5 +1,6 @@
+%% @private
+
 -module(owoify_mappings).
--include("../shared/word.hrl").
 
 -export([map_brackets_to_star_trails/1, map_consonant_r_to_consonant_w/1, map_dead_to_ded/1, map_ew_to_uwu/1, map_fi_to_fwi/1]).
 -export([map_fuc_to_fwuc/1, map_haha_to_hehe_xd/1, map_hey_to_hay/1, map_l_or_r_o_to_wo/1, map_le_to_wal/1, map_ll_to_ww/1]).
@@ -422,8 +423,12 @@ map_l_or_r_o_to_wo(Input) ->
 map_specific_consonants_o_to_letter_and_wo(Input) ->
     Func = fun(S1, S2) ->
         UppercaseS2 = string:uppercase(S2),
-        if UppercaseS2 =:= S2 -> S1 ++ "W" ++ S2;
-           true -> S1 ++ "w" ++ S2
+        if UppercaseS2 =:= S2 ->
+            W = <<"W"/utf8>>,
+            <<S1/bytes, W/bytes, S2/bytes>>;
+           true ->
+            W = <<"w"/utf8>>,
+            <<S1/bytes, W/bytes, S2/bytes>>
         end
     end,
     FirstResult = words:replace(Input, specific_consonants_o_to_letter_and_wo_lower(), <<"\\1wo"/utf8>>, false),

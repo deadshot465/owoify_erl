@@ -1,3 +1,5 @@
+%% @private
+
 -module(owoify_presets).
 
 -export([specific_word_mapping_list/0, uvu_mapping_list/0, uwu_mapping_list/0, owo_mapping_list/0]).

@@ -1,10 +1,12 @@
+%% @private
+
 -module(owoify_utility).
 
 -export([interleave_list/2]).
 
 -spec interleave_list([any()], [any()]) -> [any()].
 interleave_list(A, B) ->
-    interleave([], A, B, 0).
+    lists:reverse(interleave([], A, B, 0)).
 
 -spec interleave([any()], [any()], [any()], non_neg_integer()) -> [any()].
 interleave(Result, Lst, Other, Round) ->

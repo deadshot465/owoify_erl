@@ -1,0 +1,3 @@
+%% encoding: UTF-8
+{application,owoify_erl}.
+{modules,[owoify_erl,owoify_erl_tests]}.
