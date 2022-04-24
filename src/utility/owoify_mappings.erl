@@ -50,6 +50,7 @@ read_to_wead_upper() ->
 read_to_wead_lower() ->
     {ok, Mp} = re:compile("read", [unicode]),
     Mp.
+
 -spec brackets_to_startrails_fore() -> {'re_pattern', _, _, _, _}.
 brackets_to_startrails_fore() ->
     {ok, Mp} = re:compile("[({<]", [unicode]),
