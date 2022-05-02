@@ -170,6 +170,7 @@ lorr_o_to_wo_lower() ->
 specific_consonants_o_to_letter_and_wo_upper() ->
     {ok, Mp} = re:compile("([BCDFGHJKMNPQSTXYZ])([oO])", [unicode]),
     Mp.
+
 -spec specific_consonants_o_to_letter_and_wo_lower() -> {'re_pattern', _, _, _, _}.
 specific_consonants_o_to_letter_and_wo_lower() ->
     {ok, Mp} = re:compile("([bcdfghjkmnpqstxyz])o", [unicode]),
