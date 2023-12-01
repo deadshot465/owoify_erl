@@ -1,6 +1,6 @@
 {application, owoify_erl,
  [{description, "This Erlang port of mohan-cao's owoify-js is released under MIT license, which is also the same license of owoify-js. This simple library will turn any string into nonsensical babyspeak similar to what LeafySweet's infamous Chrome extension did."},
-  {vsn, "1.0.0"},
+  {vsn, "1.1.0"},
   {registered, []},
   {applications,
    [kernel,

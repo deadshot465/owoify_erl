@@ -13,20 +13,24 @@ interleave(Result, Lst, Other, Round) ->
     case math:fmod(Round, 2) of
         0.0 ->
             LstEmpty = length(Lst) =:= 0,
-            if LstEmpty =:= true ->
-                OtherEmpty = length(Other),
-                if OtherEmpty =:= false -> Other ++ Result;
-                   true -> Result
-                end;
-               true ->
-                [Head | Tail] = Lst,
-                interleave([Head | Result], Tail, Other, Round + 1)
+            if
+                LstEmpty =:= true ->
+                    OtherEmpty = length(Other),
+                    if
+                        OtherEmpty =:= false -> Other ++ Result;
+                        true -> Result
+                    end;
+                true ->
+                    [Head | Tail] = Lst,
+                    interleave([Head | Result], Tail, Other, Round + 1)
             end;
         _ ->
             OtherEmpty = length(Other) =:= 0,
-            if OtherEmpty -> Result;
-               true ->
-                [Head | Tail] = Other,
-                interleave([Head | Result], Lst, Tail, Round + 1)
+            if
+                OtherEmpty ->
+                    Result;
+                true ->
+                    [Head | Tail] = Other,
+                    interleave([Head | Result], Lst, Tail, Round + 1)
             end
     end.

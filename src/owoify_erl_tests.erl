@@ -46,14 +46,17 @@ uwu_not_equal_to_uvu_test() ->
 pokemon_names_test() ->
     {ok, Binary} = file:read_file(pokemon_name_list_path()),
     Strings = string:tokens(binary_to_list(Binary), "\r\n"),
-    lists:foreach(fun(X) ->
-        OwoName = owoify_erl:owoify(X),
-        UwuName = owoify_erl:owoify(X, uwu),
-        UvuName = owoify_erl:owoify(X, uvu),
-        ?assert(string:length(OwoName) > 0),
-        ?assert(string:length(UwuName) > 0),
-        ?assert(string:length(UvuName) > 0)
-    end, Strings).
+    lists:foreach(
+        fun(X) ->
+            OwoName = owoify_erl:owoify(X),
+            UwuName = owoify_erl:owoify(X, uwu),
+            UvuName = owoify_erl:owoify(X, uvu),
+            ?assert(string:length(OwoName) > 0),
+            ?assert(string:length(UwuName) > 0),
+            ?assert(string:length(UvuName) > 0)
+        end,
+        Strings
+    ).
 
 long_texts_test_() ->
     {timeout, 600, fun() ->
