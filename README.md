@@ -1,6 +1,8 @@
 # owoify_erl
 Turning your worst nightmare into a Rebar3 package on Hex.
 
+[![Erlang CI](https://github.com/deadshot465/owoify_erl/actions/workflows/erlang.yml/badge.svg)](https://github.com/deadshot465/owoify_erl/actions/workflows/erlang.yml)
+
 - [Hex package](https://hex.pm/packages/owoify_erl)
 
 This is an Erlang port of [mohan-cao's owoify-js](https://github.com/mohan-cao/owoify-js), which will help you turn any string into nonsensical babyspeak similar to LeafySweet's infamous Chrome extension.
