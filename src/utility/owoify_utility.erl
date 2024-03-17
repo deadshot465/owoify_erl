@@ -11,7 +11,7 @@ interleave_list(A, B) ->
 -spec interleave([any()], [any()], [any()], non_neg_integer()) -> [any()].
 interleave(Result, Lst, Other, Round) ->
     case math:fmod(Round, 2) of
-        0.0 ->
+        +0.0 ->
             LstEmpty = length(Lst) =:= 0,
             if
                 LstEmpty =:= true ->
