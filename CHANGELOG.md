@@ -1,3 +1,7 @@
+## 1.1.1
+- Remove plugins from project as it seems that rebar3 will also pull in plugins when using owoify_erl as a dependency.
+- Fix some typespecs.
+
 ## 1.1.0
 **This version changed some mappings in presets, so the same input probably won't return the same result as version 1.0.0.**
 

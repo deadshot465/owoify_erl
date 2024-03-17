@@ -13,7 +13,7 @@
 %% This function will use the default owoness <em>owo</em> to owoify the source string.
 %% @param Source The source string to owoify.
 %% @returns The owoified string in Unicode form.
--spec owoify(binary()) -> unicode:charlist().
+-spec owoify(string()) -> unicode:charlist().
 owoify(Source) ->
     owoify(Source, owo).
 
@@ -21,7 +21,7 @@ owoify(Source) ->
 %% This function will use the <em>uwu</em> owoness to owoify the source string.
 %% @param Source The source string to owoify.
 %% @returns The owoified string in Unicode form.
--spec uwuify(binary()) -> unicode:charlist().
+-spec uwuify(string()) -> unicode:charlist().
 uwuify(Source) ->
     owoify(Source, uwu).
 
@@ -29,7 +29,7 @@ uwuify(Source) ->
 %% This function will use the <em>uvu</em> owoness to owoify the source string.
 %% @param Source The source string to owoify.
 %% @returns The owoified string in Unicode form.
--spec uvuify(binary()) -> unicode:charlist().
+-spec uvuify(string()) -> unicode:charlist().
 uvuify(Source) ->
     owoify(Source, uvu).
 
@@ -38,7 +38,7 @@ uvuify(Source) ->
 %% @param Source The source string to owoify.
 %% @param Level The owoness of the result string.
 %% @returns The owoified string in Unicode form.
--spec owoify(binary(), owoify_level()) -> unicode:charlist().
+-spec owoify(string(), owoify_level()) -> unicode:charlist().
 owoify(Source, Level) ->
     {match, WordMatches} = re:run(Source, word_regex(), [global, {capture, all, binary}]),
     Words = lists:map(
